@@ -20,7 +20,7 @@
 				</div>
 
 				<p class="join_title"><img src="../images/join_tit03.gif" alt="회원정보입력" /></p>
-				<form action="" method=""  name="join_form" onsubmit="return formValidate(this);">
+				<form action="registAction.jsp" method=""  name="join_form" onsubmit="return formValidate(this);">
 					<table cellpadding="0" cellspacing="0" border="0" class="join_box">
 						<colgroup>
 							<col width="80px;" />
@@ -32,7 +32,7 @@
 						</tr>
 						<tr>
 							<th><img src="../images/join_tit002.gif" /></th>
-							<td><input type="text" name="id"  value="" class="join_input" />&nbsp;<a onclick="id_check_person();" style="cursor:hand;"><img src="../images/btn_idcheck.gif" alt="중복확인"/></a>&nbsp;&nbsp;<span>* 4자 이상 12자 이내의 영문/숫자 조합하여 공백 없이 기입</span></td>
+							<td><input type="text" name="id"  value="" class="join_input" />&nbsp;<input type="image" src="../images/btn_idcheck.gif" onclick="id_check_person(this.form);" style="cursor:hand;">&nbsp;&nbsp;<span>* 4자 이상 12자 이내의 영문/숫자 조합하여 공백 없이 기입</span></td>
 						</tr>
 						<tr>
 							<th><img src="../images/join_tit003.gif" /></th>
@@ -233,6 +233,21 @@
 	        eval("document.join_form."+ nextName).focus();
 	    }
 	} 
+	function id_check_person(fn){
+	    if(fn.id.value==''){
+	        alert("아이디를 입력후 중복확인 해주세요.");
+	        fn.id.focus();
+	    }
+	    else{
+	        //아이디 중복확인 창을 띄울때 입력한 아이디를 쿼리스트링으로 
+	        //넘겨준다. 
+	        window.open('RegiIdOverlap.jsp?id='+fn.id.value, 
+	            'idOver', 
+	            'width=500,height=300');
+	        //입력한 아이디를 수정할 수 없도록 속성을 추가한다. 
+	        fn.id.readOnly = true;
+	    }
+	}
 	
 	</script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

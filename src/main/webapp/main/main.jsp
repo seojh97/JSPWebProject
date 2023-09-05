@@ -29,8 +29,9 @@
 			    session영역에 해당 속성값이 있는지 확인한다.
 			    즉, session영역에 데이터가 없다면 로그아웃 상태 이므로 로그인 폼을 웹브라우저에 출력한다.
 			    */
-			    if (session.getAttribute("UserId") == null) { 
+			    if (session.getAttribute("Id") == null) { 
    				%>
+   				<form action="../member/LoginProcess.jsp" method="post" name="loginFrm">
 					<table cellpadding="0" cellspacing="0" border="0">
 						<colgroup>
 							<col width="45px" />
@@ -39,12 +40,12 @@
 						</colgroup>
 						<tr>
 							<th><img src="../images/login_tit01.gif" alt="아이디" /></th>
-							<td><input type="text" name="" value="" class="login_input" /></td>
+							<td><input type="text" name="Id" value="" class="login_input" /></td>
 							<td rowspan="2"><input type="image" src="../images/login_btn01.gif" alt="로그인" /></td>
 						</tr>
 						<tr>
 							<th><img src="../images/login_tit02.gif" alt="패스워드" /></th>
-							<td><input type="text" name="" value="" class="login_input" /></td>
+							<td><input type="password" name="Pass" value="" class="login_input" /></td>
 						</tr>
 					</table>
 					<p>
@@ -52,16 +53,19 @@
 						<a href="../member/id_pw.jsp"><img src="../images/login_btn02.gif" alt="아이디/패스워드찾기" /></a>
 						<a href="../member/join01.jsp"><img src="../images/login_btn03.gif" alt="회원가입" /></a>
 					</p>
+   				</form>
 					<%
 			    	}	else {
 					%>
 					<!-- 로그인 후 -->
-					<p style="padding:10px 0px 10px 10px"><span style="font-weight:bold; color:#333;">000님,</span> 반갑습니다.<br />로그인 하셨습니다.</p>
+					<p style="padding:10px 0px 10px 10px"><span style="font-weight:bold; color:#333;"><%= session.getAttribute("UserName") %> 회원님, 로그인하셨습니다.<br /></p>
 					<p style="text-align:right; padding-right:10px;">
 						<a href=""><img src="../images/login_btn04.gif" /></a>
 						<a href=""><img src="../images/login_btn05.gif" /></a>
 					</p>
-			 		<%
+		        	<%-- <%= session.getAttribute("UserName") %> 회원님, 로그인하셨습니다.<br />
+			        <a href="Logout.jsp">[로그아웃]</a> --%>
+			  		<%
 			    	}
 			 		%>
 				</div>

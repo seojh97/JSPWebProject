@@ -1,23 +1,24 @@
 package membership;
-
+/*
+DTO(Data Transfer Object) : JSP와 데이터를 전달하기 위한 객체로 자바빈 규약에 의해 제작한다.
+자바빈 규약은 책 114페이지를 참조한다.
+*/
 public class MemberDTO {
-
-	private String name;
+	
+	//멤버변수 : member 테이블의 컴럼과 동일하게 생성한다.
 	private String id;
 	private String pass;
-	private String tel;
-	private String mobile;
-	private String email;
-	private String email_check;
-	private String zipcode;
-	private String addr1;
-	private String addr2;
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	private String name;
+	private String regidate;
+	
+	/*
+	생성자의 경우 꼭 필요한 경우가 아니라면 생성하지 않아도 된다.
+	생성자를 기술하지 않으면 컴파일러에 의해 디폴트생성자가 자동으로 추가되기 때문이다.
+	*/
+	
+	/*
+	정보은닉된 멤버변수에 접근하기 위해 public으로 정의된 getter, setter를 정의한다.
+	*/
 	public String getId() {
 		return id;
 	}
@@ -30,48 +31,17 @@ public class MemberDTO {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	public String getTel() {
-		return tel;
+	public String getName() {
+		return name;
 	}
-	public void setTel(String tel) {
-		this.tel = tel;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getMobile() {
-		return mobile;
+	public String getRegidate() {
+		return regidate;
 	}
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public void setRegidate(String regidate) {
+		this.regidate = regidate;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getEmail_check() {
-		return email_check;
-	}
-	public void setEmail_check(String email_check) {
-		this.email_check = email_check;
-	}
-	public String getZipcode() {
-		return zipcode;
-	}
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
-	}
-	public String getAddr1() {
-		return addr1;
-	}
-	public void setAddr1(String addr1) {
-		this.addr1 = addr1;
-	}
-	public String getAddr2() {
-		return addr2;
-	}
-	public void setAddr2(String addr2) {
-		this.addr2 = addr2;
-	}
-
+	
 }
-
