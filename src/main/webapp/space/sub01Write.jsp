@@ -7,7 +7,7 @@
 
 <%
 //게시판 테이블 파라미터 받아오기
-//String tname = request.getParameter("tname");
+String tname = request.getParameter("tname");
 %>
     
 <%@ include file="../include/global_head.jsp" %>
@@ -46,6 +46,9 @@ function validateForm(form) {
 <!-- 게시판 들어가는 부분s -->
 <form name="writeFrm" method="post" action="WriteProcess.jsp"
       onsubmit="return validateForm(this);">
+
+<input type="hidden" name="tname" value="<%=tname %>" />
+      
     <table class="table table-bordered" width="90%">
         <tr>
             <td>제목</td>

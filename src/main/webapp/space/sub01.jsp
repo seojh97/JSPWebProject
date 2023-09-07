@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../include/global_head.jsp" %>
 
-
  <body>
 	<center>
 	<div id="wrap">
@@ -20,9 +19,10 @@
 					<p class="location"><img src="../images/center/house.gif" />&nbsp;&nbsp;열린공간&nbsp;>&nbsp;공지사항<p>
 				</div>
 				<div>
+<!-- 게시판 들어가는 부분 s-->
 
 
-
+<!-- 게시판 들어가는 부분 e-->
 				</div>
 			</div>
 		</div>

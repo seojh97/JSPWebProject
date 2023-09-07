@@ -28,7 +28,7 @@ public class MemberDAO  extends JDBConnect{
 		//회원인증을 위한 쿼리문을 실행한 후 회원정보를 저장하기 위해 생성
 		MemberDTO dto = new MemberDTO();
 		//로그인 폼에서 입력한 아이디, 비번을 통해 인파라미터를 설정할 수 있도록 쿼리문을 작성
-		String query = "SELECT * FROM member WHERE id=? AND pass=?";
+		String query = "SELECT * FROM regist_member WHERE id=? AND pass=?";
 		
 		try {
 			//쿼리문 실행을 위한 prepared객체 생성
@@ -42,10 +42,9 @@ public class MemberDAO  extends JDBConnect{
 			//반환된 ResultSet객체에 정보가 있는지 확인한다.
 			if(rs.next()) {
 				//회원정보가 있다면 DTO객체에 저장한다.
+				dto.setName(rs.getString("name"));
 				dto.setId(rs.getString("id"));
 				dto.setPass(rs.getString("pass"));
-				dto.setName(rs.getString(3));
-				dto.setRegidate(rs.getString(4));
 			}
 		}
 		catch(Exception e) {

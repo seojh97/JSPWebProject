@@ -7,7 +7,6 @@
 String userId = request.getParameter("Id");
 String userPwd = request.getParameter("Pass");
 
-//출력결과가 Console에 나온다.
 System.out.println(userId+"="+userPwd);//콘솔 확인
 //출력결과가 웹브라우저에 나온다.
 out.println(userId+"="+userPwd);//웹브라우저 확인
@@ -37,13 +36,13 @@ if(memberDTO.getId() != null){
 	session.setAttribute("Id", memberDTO.getId());
 	session.setAttribute("Name", memberDTO.getName());
 	//그리고 로그인 페이지로 '이동' 한다.
-	//response.sendRedirect("login.jsp"); //주석 확인용
+	response.sendRedirect("../main/main.jsp");
 }
 else{
 	//로그인에 실패한 경우
 	//request영역에 에러메세지를 저장한다.
 	request.setAttribute("LoginErrMsg", "로그인 오류입니다.");
 	//그리고 로그인 페이지로 '포워드' 한다.
-	//request.getRequestDispatcher("login.jsp").forward(request, response); //주석 확인용
+	request.getRequestDispatcher("login.jsp").forward(request, response);
 }
 %>
