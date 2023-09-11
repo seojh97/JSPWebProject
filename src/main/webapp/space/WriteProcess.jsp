@@ -10,6 +10,7 @@
 //클라이언트가 작성한 폼값을 받아온다. 
 String title = request.getParameter("title");
 String content = request.getParameter("content");
+String tname = request.getParameter("tname");
 
 //폼값을 DTO객체에 저장한다. 
 BoardDTO dto = new BoardDTO();
@@ -39,7 +40,7 @@ dao.close();
 
 if (iResult == 1) {
 	//글쓰기에 성공했다면 목록으로 이동한다. 
-    response.sendRedirect("sub01List.jsp");
+    response.sendRedirect("sub01List.jsp?tname="+tname);
 } 
 else {
 	//실패했다면 경고창(alert)을 띄우고, 뒤로(history) 이동한다. 

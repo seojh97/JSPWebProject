@@ -26,8 +26,8 @@ public class BoardDAO extends JDBConnect {
 
     	
     	//게시물 수를 얻어오기 위한 퀴리문 작성 
-        String query = "SELECT COUNT(*) FROM board";        
-        //String query = "SELECT COUNT(*) FROM "+ map.get("tname");
+        //String query = "SELECT COUNT(*) FROM board";        
+        String query = "SELECT COUNT(*) FROM "+ map.get("tname");
     	
     	
         /* 검색어가 있는 경우 where절을 추가하여 조건에 맞는 게시물만
@@ -57,15 +57,15 @@ public class BoardDAO extends JDBConnect {
     
     /* 작성된 게시물을 인출하여 반환한다. 특히 반환값은 여러개의 레코드를
     반환할 수 있고, 순서를 보장해야 하므로 List 컬렉션을 사용한다. */
-    public List<BoardDTO> selectList(Map<String, Object> map) { 
+    public List<BoardDTO> selectList(Map<String, Object> map) {
         
     	/* List계열의 컬렉션을 생성한다. 이때 타입 매개변수는 board테이블
     	을 대상으로 하므로 BoardDTO로 설정한다. */
-    	List<BoardDTO> bbs = new Vector<BoardDTO>();  
+    	List<BoardDTO> bbs = new Vector<BoardDTO>();
 
     	/* 레코드 인출을 위한 select 쿼리문 작성. 최근 게시물이 상단에
     	출력되야 하므로 일련번호의 내림차순으로 정렬한다. */
-        String query = "SELECT * FROM board "; 
+        String query = "SELECT * FROM board ";
         if (map.get("searchWord") != null) {
             query += " WHERE " + map.get("searchField") + " "
                    + " LIKE '%" + map.get("searchWord") + "%' ";
@@ -107,7 +107,7 @@ public class BoardDAO extends JDBConnect {
         int result = 0;        
         try {
         	/* 인파라미터가 있는 동적쿼리문으로 insert문을 작성한다. 
-        	게시물의 일련번호는 시퀀스를 통해 자동부여하고, 조회수는 
+        	게시물의 일련번호는 시퀀스를 통해 자동부여하고, 조회수는
         	0으로 입력한다. */
             String query = "INSERT INTO board ( "
                          + " num,title,content,id,visitcount) "

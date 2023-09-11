@@ -11,6 +11,7 @@ public class BoardDTO {
     /* member테이블과의 join을 통해 회원 이름을 출력해야 할때를 위해
     멤버변수를 추가한다. */
     private String name;
+    private String tname;
     
     //특별한 이유가 없다면 생성자는 선언하지 않는다. 
 
@@ -57,4 +58,10 @@ public class BoardDTO {
     public void setName(String name) {
         this.name = name;
     }
+	public String getTname() {
+		return tname;
+	}
+	public void setTname(String tname) {
+		this.tname = tname;
+	}
 }
